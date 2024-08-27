@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>express-basic-template</title>
+    <link rel="stylesheet" href="./main.css" />
+  </head>
+  <body>
+    <header>
+      <h1>메인 페이지</h1>
+    </header>
+    <main>
+      <section class="greeting-section">
+        <button id="greeting" type="button">인사합니다</button>
+        <p id="greeting-message" class="hidden"></p>
+      </section>
+
+      <section class="users-section">
+        <h2>사용자 목록 조회</h2>
+        <ul id="users" class="user-list"></ul>
+        <p id="error-message" class="hidden"></p>
+      </section>
+    </main>
+
+    <script>
+      // 버튼 클릭 시 인사 메시지 표시
+      document.querySelector("#greeting").addEventListener("click", () => {
+        fetch("http://localhost:3000/greet")
+          .then((response) => response.json())
+          .then((json) => {
+            document.querySelector("#greeting-message").textContent =
+              json.message;
+            document
+              .querySelector("#greeting-message")
+              .classList.remove("hidden");
+          })
+          .catch((e) => {
+            console.error(e);
+            document.querySelector("#greeting-message").textContent =
+              "인사 메시지를 가져오는 데 실패했습니다.";
+            document
+              .querySelector("#greeting-message")
+              .classList.remove("hidden");
+          });
+      });
+
+      // DOM이 로드되면 사용자 목록을 가져와 표시
+      document.addEventListener("DOMContentLoaded", () => {
+        const ul = document.querySelector("#users");
+        const url = "http://localhost:3000/users";
+        fetch(url)
+          .then((response) => {
+            if (response.ok) {
+              return response.json();
+            } else {
+              throw new Error(response.statusText);
+            }
+          })
+          .then((users) => {
+            if (Array.isArray(users)) {
+              users.forEach((user) => {
+                let li = document.createElement("li");
+                li.textContent = `${user.name} : ${user.email}`;
+                ul.appendChild(li);
+              });
+            } else {
+              throw new Error("데이터가 배열이 아닙니다");
+            }
+          })
+          .catch((error) => {
+            console.log(error);
+            document.querySelector("#error-message").textContent =
+              "사용자 목록을 가져오는 데 실패했습니다.";
+            document.querySelector("#error-message").classList.remove("hidden");
+          });
+      });
+    </script>
+  </body>
+</html>
