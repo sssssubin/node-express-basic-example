@@ -4,22 +4,27 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>express-basic-template</title>
-    <link rel="stylesheet" href="./main.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="icon" type="image/x-icon" href="./favicon.ico" />
   </head>
   <body>
-    <header>
-      <h1>메인 페이지</h1>
-    </header>
-    <main>
-      <section class="greeting-section">
-        <button id="greeting" type="button">인사합니다</button>
-        <p id="greeting-message" class="hidden"></p>
+    <nav class="navbar">
+      <a href="/" class="navbar__logo">
+        <img src="/logo.png" alt="Logo" class="navbar__logo-img" />
+      </a>
+    </nav>
+    <main class="main-container">
+      <section class="common-section greeting-section">
+        <button id="greeting" type="button" class="btn btn--primary">
+          인사합니다
+        </button>
+        <p id="greeting-message" class="hidden message message--info"></p>
       </section>
 
-      <section class="users-section">
+      <section class="common-section users-section">
         <h2>사용자 목록 조회</h2>
         <ul id="users" class="user-list"></ul>
-        <p id="error-message" class="hidden"></p>
+        <p id="error-message" class="hidden message message--error"></p>
       </section>
     </main>
 
@@ -61,6 +66,7 @@
             if (Array.isArray(users)) {
               users.forEach((user) => {
                 let li = document.createElement("li");
+                li.classList.add("user-list-item");
                 li.textContent = `${user.name} : ${user.email}`;
                 ul.appendChild(li);
               });
