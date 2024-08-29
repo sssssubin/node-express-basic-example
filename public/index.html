@@ -31,7 +31,7 @@
     <script>
       // 버튼 클릭 시 인사 메시지 표시
       document.querySelector("#greeting").addEventListener("click", () => {
-        fetch("/greet")
+      fetch("/greet")
           .then((response) => response.json())
           .then((json) => {
             document.querySelector("#greeting-message").textContent =
