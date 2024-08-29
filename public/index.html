@@ -31,7 +31,7 @@
     <script>
       // 버튼 클릭 시 인사 메시지 표시
       document.querySelector("#greeting").addEventListener("click", () => {
-        fetch("/greet")
+        fetch("http://express-basic-template.vercel.app/greet")
           .then((response) => response.json())
           .then((json) => {
             document.querySelector("#greeting-message").textContent =
@@ -53,7 +53,7 @@
       // DOM이 로드되면 사용자 목록을 가져와 표시
       document.addEventListener("DOMContentLoaded", () => {
         const ul = document.querySelector("#users");
-        const url = "/users";
+        const url = "http://express-basic-template.vercel.app/users";
         fetch(url)
           .then((response) => {
             if (response.ok) {
