@@ -3,7 +3,7 @@ const path = require("path");
 
 // Express 애플리케이션 생성
 const app = express();
-const port = 3000;
+// const port = 3000;
 
 // 예제 사용자 데이터
 const users = [
@@ -31,6 +31,8 @@ app.get("/users", (req, res) => {
 });
 
 // 지정된 포트에서 서버 시작 및 실행 중 메시지 출력
-app.listen(port, () => {
-  console.log(`서버 실행 중: http://localhost:${port}`);
-});
+// app.listen(port, () => {
+//   console.log(`서버 실행 중: http://localhost:${port}`);
+// });
+
+module.exports = app;
