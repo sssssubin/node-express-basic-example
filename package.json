@@ -2,7 +2,8 @@
   "name": "express-basic-template",
   "version": "1.0.0",
   "scripts": {
-    "dev": "nodemon server.js"
+    "dev": "nodemon server.js",
+    "start": "node server.js"
   },
   "dependencies": {
     "async": "^3.2.5",
