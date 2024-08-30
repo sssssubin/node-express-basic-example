@@ -1,11 +1,11 @@
-# express-basic-template
+# node-express-basic-example
 
-이 프로젝트는 기본적인 Express.js 애플리케이션 템플릿입니다. Express를 사용하여 간단한 서버를 설정하고, 정적 파일을 서빙하며, JSON API를 제공하는 기능을 구현합니다.
+이 프로젝트는 Node.js 환경에서 Express를 활용하여 웹 애플리케이션을 개발하기 위한 기본 템플릿입니다. Express를 사용하여 간단한 서버를 설정하고, 정적 파일을 서빙하며, JSON API를 제공하는 기본적인 기능을 구현합니다. Node.js와 Express의 핵심 개념을 학습하고 실습할 수 있는 예제입니다.
 
 ## 프로젝트 구조
 
 ```plaintext
-express-basic-template/
+node-express-basic-example/
 │
 ├── node_modules/         # 프로젝트의 의존성이 저장된 디렉토리
 ├── public/               # 정적 파일 (HTML, CSS, JS 등) 저장 디렉토리

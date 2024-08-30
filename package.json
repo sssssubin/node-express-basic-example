@@ -1,5 +1,5 @@
 {
-  "name": "express-basic-template",
+  "name": "node-express-basic-example",
   "version": "1.0.0",
   "scripts": {
     "dev": "nodemon server.js",
